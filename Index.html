@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模式切换按钮</title>
+    <style>
+        /* 设置整个页面的样式，让内容垂直和水平居中 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 按钮容器样式 */
+       .button-container {
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* 按钮样式，尺寸加大 1.5 倍 */
+       .toggle-button {
+            padding: 15px 30px; /* 原始内边距 10px 20px 的 1.5 倍 */
+            font-size: 24px; /* 原始字体大小 16px 的 1.5 倍 */
+            cursor: pointer;
+            border: none;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        /* 高亮样式 */
+       .active {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 按钮容器 -->
+    <div class="button-container">
+        <!-- A 按钮 -->
+        <button id="buttonA" class="toggle-button active">A</button>
+        <!-- B 按钮 -->
+        <button id="buttonB" class="toggle-button">B</button>
+    </div>
+
+    <script>
+        // 获取 A 和 B 按钮元素
+        const buttonA = document.getElementById('buttonA');
+        const buttonB = document.getElementById('buttonB');
+
+        // 为 A 按钮添加点击事件监听器
+        buttonA.addEventListener('click', function () {
+            // 给 A 按钮添加高亮类
+            this.classList.add('active');
+            // 移除 B 按钮的高亮类
+            buttonB.classList.remove('active');
+        });
+
+        // 为 B 按钮添加点击事件监听器
+        buttonB.addEventListener('click', function () {
+            // 给 B 按钮添加高亮类
+            this.classList.add('active');
+            // 移除 A 按钮的高亮类
+            buttonA.classList.remove('active');
+        });
+    </script>
+</body>
+
+</html>
